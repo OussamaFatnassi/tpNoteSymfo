@@ -1,0 +1,16 @@
+{# simple interface to visualize categories #}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+{% for category in categories %}
+	<div class="card">
+		<div class="card-body">
+			<h5 class="card-title">{{ category.name }}</h5>
+			<button type="button" class="btn btn-primary" onclick="window.location.href='/categories/{{ category.id }}/update'">Modifier</button>
+			<button type="button" class="btn btn-danger" onclick="window.location.href='/categories/{{ category.id }}/delete'">Supprimer</button>
+		</div>
+	</div>
+{% endfor %}
+
+<button type="button" class="btn btn-success" onclick="window.location.href='/categories/create'">Ajouter une catégorie</button>
+
+<button type="button" class="btn btn-primary" onclick="window.location.href='/'">Retour à l'accueil
